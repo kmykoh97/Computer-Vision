@@ -9,7 +9,12 @@
 
 To activate environment:  
 ```bash
-.\env\Scripts\activate
+> .\env\Scripts\activate
+```
+
+To deactivate environment:  
+```bash
+> deactivate
 ```
 
 Python version 3.7.3 64-bit is used  

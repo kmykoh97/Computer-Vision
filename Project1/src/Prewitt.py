@@ -36,7 +36,7 @@ class Prewitt(object):
 def main(a, b):
     pathname = a
     inputname = pathname + '.' + b
-    outputname = pathname + '-prewitt.' + b
+    outputname = pathname + '_prewitt.' + b
     prewitt = Prewitt(inputname)
     prewitt.save(outputname)
 
