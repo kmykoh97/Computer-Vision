@@ -17,8 +17,8 @@ row1 = tk.Frame(root)
 row2 = tk.Frame(root)
 kernelLabel = tk.Label(row1, text = "Kernel Size: ")
 sigmaLabel = tk.Label(row2, text = "Sigma: ")
-kernelEntry = Entry(row1)
-sigmaEntry = Entry(row2)
+kernelEntry = tk.Entry(row1)
+sigmaEntry = tk.Entry(row2)
 
 def main():
     btn1 = tk.Button(root, text = 'Select Picture Here', bd = '5', command = inputPicture)

@@ -13,7 +13,6 @@ class Roberts(object):
         # Roberts Cross convolution kernels
         robertsx = [[1,0],[0,-1]]
         robertsy = [[0,1],[-1,0]]
-
         self.sobelIm = Image.new('L', (self.width, self.height))
         pixels = self.sobelIm.load()
 
@@ -29,18 +28,17 @@ class Roberts(object):
                         val = mat[row+i, col+j]
                         Gx += robertsx[i][j] * val
                         Gy += robertsy[i][j] * val
-
                 pixels[row+1,col+1] = int(math.sqrt(Gx*Gx + Gy*Gy))
 
     def save(self, name):
         self.sobelIm.save(name)
 
-def main(a, b):
-    pathname = '../img/' + a
-    inputname = pathname + '.' + b
-    outputname = pathname + '_roberts.' + b
-    roberts = Roberts(inputname)
-    roberts.save(outputname)
+# def main(a, b):
+#     pathname = '../img/' + a
+#     inputname = pathname + '.' + b
+#     outputname = pathname + '_roberts.' + b
+#     roberts = Roberts(inputname)
+#     roberts.save(outputname)
 
 # script, first, second = argv
 # main(first, second)
