@@ -141,37 +141,13 @@ def _closing(img, as_gray, n_iterations, sel):
     dilated = _dilation(img, as_gray, n_iterations, sel)
     return _erosion(dilated, as_gray, n_iterations, sel)
 
-def _internal_gradient(img, as_gray, n_iterations, sel):
-    """Applies the internal gradient operation"""
-    img = img if as_gray else apply_threshold(img)
-    return img - _erosion(img, as_gray, n_iterations, sel)
 
-def _external_gradient(img, as_gray, n_iterations, sel):
-    """Applies the external gradient operation"""
-    img = img if as_gray else apply_threshold(img)
-    return _dilation(img, as_gray, n_iterations, sel) - img
 
 def _morphologycal_gradient(img, as_gray, n_iterations, sel):
     """Applies the morphologycal gradient operation"""
     dilated = _dilation(img, as_gray, n_iterations, sel)
     eroded = _erosion(img, as_gray, n_iterations, sel)
     return dilated - eroded
-
-def _white_top_hat(img, as_gray, n_iterations, sel):
-    """Applies the white top-hat operation"""
-    if not as_gray:
-        img = apply_threshold(img)
-        wth = np.abs(_opening(img, as_gray, n_iterations, sel) - img)
-        return apply_threshold(wth)
-    return _opening(img, as_gray, n_iterations, sel) - img
-
-def _black_top_hat(img, as_gray, n_iterations, sel):
-    """Applies the black top-hat operation"""
-    if not as_gray:
-        img = apply_threshold(img)
-        bth = np.abs(_closing(img, as_gray, n_iterations, sel) - img)
-        return apply_threshold(bth)
-    return _closing(img, as_gray, n_iterations, sel) - img
 
 def morphologycal_reconstruction(mark, mask, as_gray, sel):
     """Reconstructs objects in an image based on a mark and a mask (original image)"""

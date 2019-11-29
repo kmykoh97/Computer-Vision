@@ -21,7 +21,7 @@ Python version 3.7.3 64-bit is used
 
 ## Usage  
 
-1. Install required dependencies(eg: Numpy, tkinter, Pillow)
+1. Install required dependencies(eg: Numpy, tkinter, Pillow, matplotlib, cv2)
 2. Copy image to img folder(Not required, can be ignored)
 3. Run:  
 ```python

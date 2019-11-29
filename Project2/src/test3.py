@@ -1,4 +1,4 @@
-Learn more or give us feedback
+
 import unittest
 import numpy as np
 from skimage import io
